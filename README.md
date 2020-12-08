@@ -26,5 +26,5 @@ Host your application. If you did not host your application explain during the e
 #### Exam:
 First 5-6 minutes, demo your exam project<br>
 We will talk about the code of your exam project<br>
-You will then be asked to live code!<br
+You will then be asked to live code!<br>
 
