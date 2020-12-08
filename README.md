@@ -7,7 +7,7 @@ Exam Project for NodeJS Fall 2020.
 
 #### Deadline: Check Wiseflow for when the hand-in deadline is but you can still work on your project up until the exam.
 
-### Hard requirements:  You need to fulfill these requirements to pass the exam: <br>
+### Hard requirements:  You need to fulfill these requirements to pass the exam:
 Backend <br>
 Use Express <br>
 Use a database <br>
