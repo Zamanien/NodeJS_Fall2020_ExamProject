@@ -1,0 +1,27 @@
+{
+  "name": "nodejs_fall2020_examproject",
+  "version": "1.0.0",
+  "description": "NodeJS Exam Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zamanien/NodeJS_Fall2020_ExamProject.git"
+  },
+  "author": "Tariq",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zamanien/NodeJS_Fall2020_ExamProject/issues"
+  },
+  "homepage": "https://github.com/Zamanien/NodeJS_Fall2020_ExamProject#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
