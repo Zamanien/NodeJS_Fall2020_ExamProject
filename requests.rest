@@ -1,0 +1,23 @@
+GET http://localhost:8080/register/users
+
+
+###
+#POST
+POST http://localhost:8080/register/
+Content-Type: application/json
+
+{
+    "username":"Ole",
+    "password": "1234Pass",
+    "email":"asdasd@asdasd.com"
+}
+
+### 
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "email":"Ole",
+    "password": "1234Pass"
+}
