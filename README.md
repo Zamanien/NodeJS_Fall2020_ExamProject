@@ -7,8 +7,9 @@ Exam Project for NodeJS Fall 2020.
 
 #### Deadline: Check Wiseflow for when the hand-in deadline is but you can still work on your project up until the exam.
 
-### Hard requirements:  You need to fulfill these requirements to pass the exam:
-Backend <br>
+#### Hard requirements:  
+You need to fulfill these requirements to pass the exam:<br>
+### Backend <br>
 Use Express <br>
 Use a database <br>
 Implement Auth <br>
@@ -18,7 +19,7 @@ Use plain HTML<br>
 Use Ajax or Fetch <br>
 Use Sockets <br>
 
-#### Soft requirements:  
+### Soft requirements:  
 You must have a clean code base and your code style should be consistent. <br>
 You must make an attempt at styling your website. Styling frameworks can be used. <br>
 Host your application. If you did not host your application explain during the exam what you tried and why you didn’t. <br>
