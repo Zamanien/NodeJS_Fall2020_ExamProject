@@ -2,6 +2,7 @@ const express = require('express');
 const app = express(); 
 const bcrypt = require('bcrypt');
 require('dotenv').config();
+const mysql = require('mysql');
 const port = process.env.PORT || 9090;  
 
 //Allows app to handle JSON objects from POST requests
@@ -15,6 +16,15 @@ app.use(register);
 
 //const login = require('./routes/login.js');
 //app.use(login);
+
+//SQL connection - use .env values
+const connection = mysql.createConnection({
+    host: "",
+    user: "",
+    database: "",
+    password: ""
+});
+
 
 
 

@@ -70,7 +70,6 @@ typings/
 
 # dotenv environment variables file
 .env
-.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -106,3 +105,5 @@ dist
 # .env file
 .env
 
+#password file
+sql_database/access/

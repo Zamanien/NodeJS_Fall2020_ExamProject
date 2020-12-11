@@ -3,6 +3,10 @@ const bcrypt = require('bcrypt');
 
 const tempUsers = []
 
+router.use('/users', (req, res) => {
+    return res.json(tempUsers);
+});
+
 //Post route - reads register form data & encrypts password 
 router.post('/register', async (req, res) => {
     try{
