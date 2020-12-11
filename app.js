@@ -17,14 +17,18 @@ app.use(register);
 //const login = require('./routes/login.js');
 //app.use(login);
 
-//SQL connection - use .env values
-const connection = mysql.createConnection({
-    host: "",
-    user: "",
-    database: "",
-    password: ""
+//SQL connection - use .env value
+/*
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    waitForConnections: true,
+    connectionLimit: 5, 
+    queueLimit: 0
 });
-
+*/
 
 
 

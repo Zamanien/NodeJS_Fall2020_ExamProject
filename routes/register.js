@@ -1,5 +1,17 @@
 const router = require('express').Router(); 
 const bcrypt = require('bcrypt');
+const mysql = require('mysql');
+
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    waitForConnections: true,
+    connectionLimit: 5, 
+    queueLimit: 0
+});
+
 
 const tempUsers = []
 
@@ -15,9 +27,10 @@ router.post('/register', async (req, res) => {
         //assign username, hashed password & email to const user.
         const user = {name: req.body.username, password: hashedPassword, email: req.body.email}
         tempUsers.push(user);
-        res.status(201).send();
-    } catch {   
-        res.status(501).send();
+        pool.execute('INSERT INTO users SET username = ?, password = ?, email = ?', [username, hashedPassword, email]);
+        return res.redirect('/login')        
+    } catch(error) {   
+        res.status(501).send(error);
     }
     
 });
