@@ -3,17 +3,25 @@ const bcrypt = require('bcrypt');
 const mysql = require('mysql');
 
 const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-    waitForConnections: true,
-    connectionLimit: 5, 
-    queueLimit: 0
+    host        : process.env.DB_HOST,
+    user        : process.env.DB_USER,
+    password    : process.env.DB_SECRET,
+    database    : process.env.DB_DBNAME,
+    port        : process.env.DB_PORT,
+    waitForConnections  : true,
+    connectionLimit     : 10,
+    queueLimit          : 0
 });
 
+pool.query('SELECT * FROM users', (err, result, fields) => {
+    if(err){
+        console.log(err);
+    }else{
+        console.log(result);
+    }
+});
 
-const tempUsers = []
+//const tempUsers = []
 
 router.use('/users', (req, res) => {
     return res.json(tempUsers);
@@ -26,8 +34,8 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         //assign username, hashed password & email to const user.
         const user = {name: req.body.username, password: hashedPassword, email: req.body.email}
-        tempUsers.push(user);
-        pool.execute('INSERT INTO users SET username = ?, password = ?, email = ?', [username, hashedPassword, email]);
+        //tempUsers.push(user);
+        await pool.execute('INSERT INTO users SET username = ?, password = ?, email = ?', [username, hashedPassword, email]);
         return res.redirect('/login')        
     } catch(error) {   
         res.status(501).send(error);

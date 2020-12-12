@@ -1,7 +1,7 @@
 
 -- Create & use database if doesn't exit
 DROP DATABASE IF EXISTS DBUsers;
-CREATE DATABASE Users CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE DBusers; CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE DBUsers;
 
 -- Create table inside DB - DBUsers
