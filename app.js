@@ -2,7 +2,6 @@ const express = require('express');
 const app = express(); 
 const bcrypt = require('bcrypt');
 require('dotenv').config();
-const mysql = require('mysql');
 const port = process.env.PORT || 9090;  
 
 //Allows app to handle JSON objects from POST requests

@@ -1,6 +1,6 @@
 const router = require('express').Router(); 
 const bcrypt = require('bcrypt');
-const mysql = require('mysql');
+const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
     host        : process.env.DB_HOST,
@@ -13,32 +13,31 @@ const pool = mysql.createPool({
     queueLimit          : 0
 });
 
-pool.query('SELECT * FROM users', (err, result, fields) => {
+/*pool.query('SELECT * FROM users', (err, result, fields) => {
     if(err){
         console.log(err);
     }else{
         console.log(result);
     }
 });
+*/
 
-//const tempUsers = []
+const tempUsers = []
 
-router.use('/users', (req, res) => {
-    return res.json(tempUsers);
+router.get('/users', (req, res) => {
+    return res.json(tempUsers); 
 });
 
 //Post route - reads register form data & encrypts password 
 router.post('/register', async (req, res) => {
     try{
-        //Hash password with 10 salt (10 default)
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        //assign username, hashed password & email to const user.
-        const user = {name: req.body.username, password: hashedPassword, email: req.body.email}
+        //const user = {username: req.body.username, password: hashedPassword, email: req.body.email};
         //tempUsers.push(user);
-        await pool.execute('INSERT INTO users SET username = ?, password = ?, email = ?', [username, hashedPassword, email]);
-        return res.redirect('/login')        
+        await pool.execute("INSERT INTO users SET username = ?, password = ?, email = ?", [req.body.username, hashedPassword, req.body.email]);
+        return res.redirect('/login')  
     } catch(error) {   
-        res.status(501).send(error);
+        res.status(501).send('Error register');
     }
     
 });
