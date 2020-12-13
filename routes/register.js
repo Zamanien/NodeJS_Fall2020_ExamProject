@@ -13,37 +13,40 @@ const pool = mysql.createPool({
     queueLimit          : 0
 });
 
-/*pool.query('SELECT * FROM users', (err, result, fields) => {
-    if(err){
-        console.log(err);
-    }else{
-        console.log(result);
-    }
-});
-*/
-
-const tempUsers = []
-
-router.get('/users', (req, res) => {
-    return res.json(tempUsers); 
-});
-
 //Post route - reads register form data & encrypts password 
 router.post('/register', async (req, res) => {
     try{
+        //hash the password with bcrypt - 10 saltrounds
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        //const user = {username: req.body.username, password: hashedPassword, email: req.body.email};
-        //tempUsers.push(user);
+        //Insert form data & encrypted password into Database table: users
         await pool.execute("INSERT INTO users SET username = ?, password = ?, email = ?", [req.body.username, hashedPassword, req.body.email]);
+        //redirect to loginpage
         return res.redirect('/login')  
     } catch(error) {   
-        res.status(501).send('Error register');
+        res.status(501).send(error);
     }
     
 });
 //TODO: 
 //Split into own file
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
+    try {
+        const username = req.body.username;
+        const plainPassword = req.body.password;
+        const hashedPassword = await pool.execute("SELECT password FROM users WHERE username = ?", [username]);
+        //not defined || empty array
+        if(hashedPassword[0][0] === undefined || hashedPassword[0][0].length === 0) {
+            res.status(404).send(`User: ${username} not found!`);
+        } else if (await bcrypt.compare(plainPassword, hashedPassword[0][0].password)) {
+            res.redirect("/index");
+        } else {
+            res.status(401).send("Wrong password!");
+        }
+    } catch(err) {
+        res.status(500).send(err);
+    }
+});
+/*
     //checks user email from array
     const user = tempUsers.find(user => user.email, req.body.email);
     if(user == null){
@@ -61,6 +64,7 @@ router.post('/login', async (req, res) => {
         
     }
 });
+*/
 
 
 module.exports = router; 
