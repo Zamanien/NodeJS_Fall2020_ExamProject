@@ -1,7 +1,9 @@
 const express = require('express');
-const app = express(); 
+const app = express();
+ 
 const bcrypt = require('bcrypt');
 require('dotenv').config();
+
 const port = process.env.PORT || 9090;  
 
 //Allows app to handle JSON objects from POST requests
@@ -11,6 +13,10 @@ app.use(express.urlencoded({extended:true}));
 
 const register = require('./routes/register');
 app.use(register);
+
+
+const postRoute = require('./routes/posts');
+app.use(postRoute);
 
 
 //built in middleware - server static files (HTML files)
@@ -28,6 +34,7 @@ app.get('/register', (req, res) => {
 app.get('/login', (req, res) => {
     return res.sendFile(__dirname + '/public/login/login.html');
 });
+
 
 
 

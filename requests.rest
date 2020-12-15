@@ -1,5 +1,5 @@
-GET http://localhost:8080/users
-
+GET http://localhost:8080/posts 
+Authorization: auth-token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4MDYwNjgzfQ.Re-DGpI18XBpaEX0i8zg0laW16ZEmuKIrztAbXcuKRo
 
 ###
 #POST
@@ -7,8 +7,8 @@ POST http://localhost:8080/register/
 Content-Type: application/json
 
 {
-    "username":"Ole",
-    "password": "1234Pass",
+    "username":"OleOleOle",
+    "password": "123456123456",
     "email":"asdasd@asdasd.com"
 }
 
@@ -18,6 +18,14 @@ POST http://localhost:8080/login
 Content-Type: application/json
 
 {
-    "email":"Ole",
-    "password": "1234Pass"
+    "username":"OleOleOle",
+    "email":"asdasd@asdasd.com",
+    "password": "123456123456"
+}
+
+###
+POST http://localhost:8080/login/
+Content-Type: application/json
+{
+    "username":"tata"
 }
