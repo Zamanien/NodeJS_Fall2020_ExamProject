@@ -10,7 +10,7 @@ const pool = mysql.createPool({
     host        : process.env.DB_HOST,
     user        : process.env.DB_USER,
     password    : process.env.DB_SECRET,
-    database    : process.env.DB_DBNAME,
+    database    : process.env.DB_DATABASE,
     port        : process.env.DB_PORT,
     waitForConnections  : true,
     connectionLimit     : 10,
@@ -52,11 +52,13 @@ router.post("/login", async (req, res) => {
         if(hashedPassword[0][0] === undefined || hashedPassword[0][0].length === 0) {
             res.status(404).send(`User: ${username} not found!`);
         } else if (await bcrypt.compare(plainPassword, hashedPassword[0][0].password)) {
-            const user = { name: username };
-            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-            res.header('auth-token', token).send(token);
             
-            //res.json({ token: token});
+            const user = { name: username };
+            const accessToken = generateAccessToken(user);
+            const refreshToken = jwt.sign(user, process.env.ACCESS_REFRESHTOKEN_SECRET);
+            res.header('authorization', accessToken).send(accessToken);
+    
+            
             //res.redirect("/index");
             //return res.status(201).send('Logged in');
             
@@ -66,23 +68,13 @@ router.post("/login", async (req, res) => {
     } catch(err) {
         res.status(500).send(err);
     }
+
+    //generate access token - expires in: 
+    function generateAccessToken(user){
+        return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '10s'});
+    }
+   
 });
 
-
-/* function authenticateToken(req, res, next) {
-    const authHeader = req.header['auth-header'];
-    //if authHeader exists -> return authHeader (split by space and get by 2. parameter of array)
-    const token = authHeader && authHeader.split(' ')[1];
-    if(token == null) {
-        return res.status(401).send('Missing Token') 
-    } else {
-        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) =>{
-            if(err) return res.status(403).send('Invalid Token');
-                req.user = user;
-                next();
-        });
-    }
-    
-}*/
 
 module.exports = router; 
