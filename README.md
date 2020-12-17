@@ -10,19 +10,19 @@ Exam Project for NodeJS Fall 2020.
 #### Hard requirements:  
 You need to fulfill these requirements to pass the exam:<br>
 ### Backend <br>
-Use Express         [Check] <br>
-Use a database      [Check] <br>
-Implement Auth      [Almost]<br>
+- Use Express         [Check] <br>
+- Use a database      [Check] <br>
+- Implement Auth      [Almost]<br>
 
 ### Frontend
-Use plain HTML      [Check]<br>
-Use Ajax or Fetch   [Undone]<br>
-Use Sockets         [Undone]<br>
+- Use plain HTML      [Check]<br>
+- Use Ajax or Fetch   [Undone]<br>
+- Use Sockets         [Undone]<br>
 
 ### Soft requirements:  
-You must have a clean code base and your code style should be consistent. <br>
-You must make an attempt at styling your website. Styling frameworks can be used. <br>
-Host your application. If you did not host your application explain during the exam what you tried and why you didn’t. <br>
+- You must have a clean code base and your code style should be consistent.[Undone] <br>
+- You must make an attempt at styling your website. Styling frameworks can be used. [Undone] <br>
+- Host your application. If you did not host your application explain during the exam what you tried and why you didn’t. [Undone] <br>
 
 #### Exam:
 First 5-6 minutes, demo your exam project<br>
