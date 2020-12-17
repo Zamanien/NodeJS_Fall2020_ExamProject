@@ -41,6 +41,7 @@ build/Release
 node_modules/
 jspm_packages/
 
+
 # TypeScript v1 declaration files
 typings/
 
@@ -107,3 +108,6 @@ dist
 
 #password file
 sql_database/access/
+
+#Package.json files
+package.lock.json
