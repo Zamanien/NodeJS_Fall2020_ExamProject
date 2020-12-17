@@ -29,3 +29,19 @@ First 5-6 minutes, demo your exam project<br>
 We will talk about the code of your exam project<br>
 You will then be asked to live code!<br>
 
+
+|-------------------------------------------------------------------------------|<br>
+
+#### To launch the project: 
+
+- Clone the repo. <br>
+- Correct the .env-sample file (Fill out and remove '-sample'). <br>
+- Make sure to create MYSQL table based on the 'createDB.sql' file. <br>
+- Open terminal & type: 'npm i' <br>
+- Launch the app. <br>
+
+ 
+
+#### Link to website: <br>
+- Coming soon
+

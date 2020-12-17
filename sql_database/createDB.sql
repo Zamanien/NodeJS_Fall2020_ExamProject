@@ -13,9 +13,11 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
+--Insert Test data if wanted
 INSERT INTO users (id, username, email, password) VALUES
 (1, 'testUser1', 'test1@gmail.com', '123123123'),
 (2, 'testUser2', 'test2@gmail.com', '321321321');
 
 
+-- Display test data
 select * from users;

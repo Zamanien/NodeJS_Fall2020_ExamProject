@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:true}));
 const register = require('./routes/register');
 app.use(register);
 
-
+//JWT Authentication test
 const postRoute = require('./routes/posts');
 app.use(postRoute);
 

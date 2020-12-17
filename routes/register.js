@@ -55,7 +55,7 @@ router.post("/login", async (req, res) => {
             
             const user = { name: username };
             const accessToken = generateAccessToken(user);
-            const refreshToken = jwt.sign(user, process.env.ACCESS_REFRESHTOKEN_SECRET);
+            const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
             res.header('authorization', accessToken).send(accessToken);
     
             
