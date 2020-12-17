@@ -10,7 +10,7 @@ Exam Project for NodeJS Fall 2020.
 #### Hard requirements:  
 You need to fulfill these requirements to pass the exam:<br>
 ### Backend <br>
-Use Express <br>
+Use Express [U+2713] <br>
 Use a database <br>
 Implement Auth <br>
 
