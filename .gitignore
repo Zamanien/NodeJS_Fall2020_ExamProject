@@ -110,4 +110,4 @@ dist
 sql_database/access/
 
 #Package.json files
-package.lock.json
+package-lock.json
