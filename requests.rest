@@ -1,6 +1,9 @@
 GET http://localhost:8080/posts 
-Authorization: autherization eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4MjAxODEwLCJleHAiOjE2MDgyMDE4MjB9.mWu0IeYJhdTtpiioB0nBTz3IVFq2AC_axPWl67v8rLU
+Authorization: autherization eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4NTc2MTU3fQ.8FP9qfvJKpk8KUnnBKzOPrPpRnIUYvoxsjRbjim533c
 
+###
+GET http://localhost:8080/test
+Authorization: autherization eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4NTc3MTgxfQ.b3LT1ClidtdZ6fVVRocfiwJBseEVX-pq3o6yhdMB9mw
 
 ###
 #POST
@@ -8,7 +11,7 @@ POST http://localhost:8080/register/
 Content-Type: application/json
 
 {
-    "username":"OleOleOle",
+    "username":"OleOlesOle",
     "password": "123456123456",
     "email":"asdasd@asdasd.com"
 }
@@ -19,13 +22,12 @@ Content-Type: application/json
 
 {
     "username":"OleOleOle",
-    "email":"asdasd@asdasd.com",
-    "password": "123456123456"
+    "password": "123456123456"                                  
 }
 
 ###
-POST http://localhost:8080/login/
+POST http://localhost:8080/token/
 Content-Type: application/json
 {
-    "username":"tata"
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4MjIwMjk1fQ.J0i1VuZTza4v42NapkptZYPYhN4D8U8bb2ZeWcfRq04"
 }

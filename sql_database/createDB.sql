@@ -13,6 +13,13 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
+--Create table inside DBUsers for storing refreshTokens
+CREATE TABLE refreshTokens ( 
+  token CHAR(255) UNIQUE,
+  id int(64),
+  FOREIGN KEY (id) REFERENCES users(id)
+);
+
 --Insert Test data if wanted
 INSERT INTO users (id, username, email, password) VALUES
 (1, 'testUser1', 'test1@gmail.com', '123123123'),

@@ -3,9 +3,9 @@
 const { version } = require('joi');
 
 const router = require('express').Router();
-const verify = require('./verifyJWT');
+const verify = require('../routes/auth/verify-JWT');
 
-router.get('/posts', verify,(req, res) => {
+router.get('/posts', verify, (req, res) => {
     res.json({
         posts:{
             content:"This should be only visible for OleOleOle",

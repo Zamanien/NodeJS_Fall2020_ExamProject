@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const bcrypt = require('bcrypt');
+const verify = require('./routes/auth/verify-JWT');
 require('dotenv').config();
 
 const port = process.env.PORT || 9090;  
@@ -10,8 +10,11 @@ app.use(express.json());
 //Allows the app to read incoming objects as Strings or Arrays
 app.use(express.urlencoded({extended:true}));
 
-const register = require('./routes/register');
+const register = require('./routes/auth/register-auth');
 app.use(register);
+
+const login = require('./routes/auth/login-auth');
+app.use(login);
 
 //JWT Authentication test
 const postRoute = require('./routes/posts');
@@ -32,6 +35,10 @@ app.get('/register', (req, res) => {
 
 app.get('/login', (req, res) => {
     return res.sendFile(__dirname + '/public/login/login.html');
+});
+
+app.get('/user', verify, (req, res) => {
+    return res.sendFile(__dirname + '/public/user/user.html');
 });
 
 
