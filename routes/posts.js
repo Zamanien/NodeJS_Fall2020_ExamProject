@@ -8,16 +8,11 @@ const verify = require('../routes/auth/verify-JWT');
 router.get('/posts', verify, (req, res) => {
     res.json({
         posts:{
-            content:"This should be only visible for OleOleOle",
+            content:"This should be only visible for User",
             description:"random data",
             username: "OleOleOle"
 
-        },
-            content:"This should be only visible for tatata",
-            description:"random data",
-            username: "tatata"
-
-
+        }
     });
 });
 

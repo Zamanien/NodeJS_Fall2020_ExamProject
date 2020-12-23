@@ -20,14 +20,17 @@ router.get('/test', verify, (req, res) => {
     });
 });
 
+//Login route. Post method with rateLimiter applied
 router.post('/login', rateLimiter, async (req, res) => {
     try {
         //Validates the Joi Schema (imported from validation.js) & Decontructoring - filter out error feedback
         const {error} = validateLogin(req.body);
         if(error) return res.status(400).send(error.details[0].message);
 
+        //initialize variables with value from .body.username and password
         const username = req.body.username;
         const plainPassword = req.body.password;
+        //initialize and assign variable with DB value
         const userInfo = await pool.execute('SELECT id, password FROM users WHERE username = ?', [username]);
         
         //user not defined || empty array
@@ -94,7 +97,6 @@ router.post('/token', async (req, res) => {
 
 router.get('/logout', async (req, res) => {
     refreshToken = req.cookies.refreshToken;
-    //accessToken = req.cookies.accessToken;
 
     if (refreshToken !== undefined) {
         await pool.execute('DELETE FROM refreshTokens WHERE token = ?', [refreshToken]);
@@ -109,21 +111,5 @@ router.get('/logout', async (req, res) => {
 
 });
 
-
-
-
-/*
-//logger brugeren ud og fjerner begge cookies.
-router.get('/logout', async (req, res) => {
-    refreshToken = req.cookies.refreshToken;
-    if(refreshToken !== undefined) {
-        await pool.execute("DELETE FROM refreshToken WHERE token = ?", [refreshToken]);
-        res.clearCookie("refreshToken");
-        res.clearCookie("accessToken");
-        return res.send("You are now logged out!"); //status(204) giver error ifht. at nå endpoint.
-    } else {
-        return res.send("You are not logged in!");
-    }
-});*/
 
 module.exports = router; 

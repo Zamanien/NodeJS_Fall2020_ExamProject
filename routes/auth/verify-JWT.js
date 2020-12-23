@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+//exports the JWT verify function. 
 module.exports = function (req, res, next) {
   const token = req.cookies.accessToken;
   if (token == null) return res.status(401).send('ACCESS DENIED - Missing token');

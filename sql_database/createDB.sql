@@ -28,3 +28,18 @@ INSERT INTO users (id, username, email, password) VALUES
 
 -- Display test data
 select * from users;
+
+
+-- Create new user - avoid using root -- 
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+
+-- Grant privileges. (Don't grant all privileges). In this case; INSERT, UPDATE, DELETE, SELECT --
+GRANT INSERT ON database_name TO 'newuser'@'localhost':
+
+-- Revoke privileges --
+REVOKE INSERT ON database_name FROM 'newuser'@'localhost':
+
+-- Flush privileges -- 
+FLUSH PRIVILEGES; 
+
+
