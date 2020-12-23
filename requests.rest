@@ -26,8 +26,4 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/token/
-Content-Type: application/json
-{
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4MjIwMjk1fQ.J0i1VuZTza4v42NapkptZYPYhN4D8U8bb2ZeWcfRq04"
-}
+GET http://localhost:8080/logout/

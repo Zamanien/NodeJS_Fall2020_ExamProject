@@ -93,22 +93,37 @@ router.post('/token', async (req, res) => {
 
 
 router.get('/logout', async (req, res) => {
-    refreshToken = process.env.REFRESH_TOKEN_SECRET;
+    refreshToken = req.cookies.refreshToken;
+    //accessToken = req.cookies.accessToken;
 
-    try {
-        if(refreshToken !== undefined) {
-            await pool.execute('DELETE FROM refreshTokens WHERE token = ?', [refreshToken]);
-            res.clearCookie(refreshToken);
-            res.clearCookie(accessToken);
-            return res.status(200).send('Logged Out.');
-        } else {
-            return res.send('Not logged in.')
-        }
+    if (refreshToken !== undefined) {
+        await pool.execute('DELETE FROM refreshTokens WHERE token = ?', [refreshToken]);
+        res.clearCookie('refreshToken');
+        res.clearCookie('accessToken');
+        return res.status(201).send('Successfully logged out');
         
-    } catch (error) {
-        res.status(401).send('Error logging out. Try again');
+    } else {
+        return res.status(401).send('Not logged in. Please login to view the page.');
+        
     }
 
 });
+
+
+
+
+/*
+//logger brugeren ud og fjerner begge cookies.
+router.get('/logout', async (req, res) => {
+    refreshToken = req.cookies.refreshToken;
+    if(refreshToken !== undefined) {
+        await pool.execute("DELETE FROM refreshToken WHERE token = ?", [refreshToken]);
+        res.clearCookie("refreshToken");
+        res.clearCookie("accessToken");
+        return res.send("You are now logged out!"); //status(204) giver error ifht. at nå endpoint.
+    } else {
+        return res.send("You are not logged in!");
+    }
+});*/
 
 module.exports = router; 

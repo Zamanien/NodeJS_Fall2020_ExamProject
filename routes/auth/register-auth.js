@@ -1,8 +1,6 @@
 const router = require('express').Router(); 
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const {validateRegister} = require('./validation');
-const  verify = require('./verify-JWT');
 const pool = require('../database/db-route');
 const rateLimiter = require('../util/rate-limiter.js');
 
