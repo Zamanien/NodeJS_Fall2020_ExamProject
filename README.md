@@ -12,12 +12,12 @@ You need to fulfill these requirements to pass the exam:<br>
 ### Backend <br>
 - Use Express         [Check] <br>
 - Use a database      [Check] <br>
-- Implement Auth      [Almost]<br>
+- Implement Auth      [Check - needs re-check]<br>
 
 ### Frontend
 - Use plain HTML      [Check]<br>
 - Use Ajax or Fetch   [Undone]<br>
-- Use Sockets         [Undone]<br>
+- Use Sockets         [Current]<br>
 
 ### Soft requirements:  
 - You must have a clean code base and your code style should be consistent.[Undone] <br>
