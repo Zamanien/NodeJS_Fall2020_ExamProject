@@ -4,25 +4,33 @@ const verify = require('./routes/auth/verify-JWT');
 require('dotenv').config();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-const formatMessage = require('./routes/util/chat-messages.js'); 
 
+//Stores the users in object (preferred stored in DB instead)
+const users = {}
 
 io.on('connection', socket =>{
 
-    socket.emit('message', formatMessage('Server', 'Welcome to Chat-side'));     
-
-    //Broadcast when a user connects - Notifies everyone except user 
-    socket.broadcast.emit('message', formatMessage('Server','A user has connected'));
-
-    //broadcast disconnects 
-    socket.on('disconnect',() => {
-        io.emit('message', formatMessage('Server', 'A user has left'));
-    });
+     //Emits welcome message
+     socket.broadcast.emit('message', 'Welcome to Chat-side');     
 
     //Listens for chatMessage
-    socket.on('chatMessage', (message) => {
-        //emit to everyone in chat
-        io.emit('message', formatMessage('USER', message));
+    socket.on('sendMessage', message => {
+        socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] })
+            
+    });
+
+    //Displays username - gets id from built in socket method
+    socket.on('new-user', name => {
+        users[socket.id] = name;
+        socket.broadcast.emit('user-connected', name);
+    });
+
+    //Handle user disconnect
+    socket.on('disconnect', () => {
+        //exit message - user linked to built-in socket id
+        socket.broadcast.emit('user-disconnected', users[socket.id]);
+        //delete element at key (id)
+        delete users[socket.id];
     });
 });
 
