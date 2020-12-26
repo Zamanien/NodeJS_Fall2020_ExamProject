@@ -16,8 +16,8 @@ You need to fulfill these requirements to pass the exam:<br>
 
 ### Frontend
 - Use plain HTML      [Check]<br>
-- Use Ajax or Fetch   [Undone]<br>
-- Use Sockets         [Current]<br>
+- Use Ajax or Fetch   [Ongoing]<br>
+- Use Sockets         [Check]<br>
 
 ### Soft requirements:  
 - You must have a clean code base and your code style should be consistent.[Undone] <br>

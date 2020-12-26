@@ -1,4 +1,4 @@
-//JWT Authentication test
+//JWT Authentication test - to be deleted
 const router = require('express').Router();
 const verify = require('../routes/auth/verify-JWT');
 
