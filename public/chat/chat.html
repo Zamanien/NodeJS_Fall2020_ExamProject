@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +8,32 @@
     <title>Chat Side</title>
 </head>
 <body>
+    
     <h2>Chat Side</h2>
+
+    <div class="display-name">
+        <p class="text"></p>
+    </div>
+
+
+    <div class="chat-messages">
+        <div class="message">
+            <p class="user-name"></p>
+            <p class="meta"><span></span></p>
+            <p class="text"></p>
+        </div>
+    </div>
 
 
     <div>
-        <form action="" id="chatForm">
+        <form id="chatForm">
             <input type="text" name="text-input" id="textInput" placeholder="Type here">
             <button type="submit">Send</button>
         </form>
     </div>
-    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.js" integrity="sha512-53y53BQwxZvk4YGd9SkHPqI7nDwlIIFZ4D2BSJG08Co7y6O3YsWeRtO6trPtdoyqfTCTkTbCulNosIAI6E4UvQ==" crossorigin="anonymous"></script>
     <!-- Socket scripts -->
     <!-- Allows access to frontend Library-->
     <script src="/socket.io/socket.io.js"></script>

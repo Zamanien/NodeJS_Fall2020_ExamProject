@@ -4,22 +4,25 @@ const verify = require('./routes/auth/verify-JWT');
 require('dotenv').config();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+const formatMessage = require('./routes/util/chat-messages.js'); 
 
 
 io.on('connection', socket =>{
-    socket.emit('message', 'Welcome to Chat-side');
+
+    socket.emit('message', formatMessage('Server', 'Welcome to Chat-side'));     
 
     //Broadcast when a user connects - Notifies everyone except user 
-    socket.broadcast.emit('message', 'A user has connected');
+    socket.broadcast.emit('message', formatMessage('Server','A user has connected'));
 
     //broadcast disconnects 
     socket.on('disconnect',() => {
-        io.emit('message', 'A user has left');
+        io.emit('message', formatMessage('Server', 'A user has left'));
     });
 
     //Listens for chatMessage
     socket.on('chatMessage', (message) => {
-        console.log(message);
+        //emit to everyone in chat
+        io.emit('message', formatMessage('USER', message));
     });
 });
 
@@ -61,9 +64,11 @@ app.get('/user', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/user/user.html');
 });
 
+
 app.get('/chat', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/chat/chat.html');
 });
+
 
 
 
