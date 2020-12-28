@@ -98,11 +98,12 @@ router.post('/token', async (req, res) => {
 router.get('/logout', async (req, res) => {
     refreshToken = req.cookies.refreshToken;
 
+    //If refreshToken exists: delete from DB and clear cookies 
     if (refreshToken !== undefined) {
         await pool.execute('DELETE FROM refreshTokens WHERE token = ?', [refreshToken]);
         res.clearCookie('refreshToken');
         res.clearCookie('accessToken');
-        return res.status(201).send('Successfully logged out');
+        return res.status(200).send('Successfully logged out');
         
     } else {
         return res.status(401).send('Not logged in. Please login to view the page.');

@@ -1,12 +1,15 @@
 GET http://localhost:8080/posts 
 Authorization: autherization eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4NTc2MTU3fQ.8FP9qfvJKpk8KUnnBKzOPrPpRnIUYvoxsjRbjim533c
 
-###
+### Auth check before Cookie implementation
 GET http://localhost:8080/test
 Authorization: autherization eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiT2xlT2xlT2xlIiwiaWF0IjoxNjA4NTc3MTgxfQ.b3LT1ClidtdZ6fVVRocfiwJBseEVX-pq3o6yhdMB9mw
 
-###
-#POST
+### Atuh check after Cookie implementation
+GET http://localhost:8080/test
+
+
+###POST
 POST http://localhost:8080/register/
 Content-Type: application/json
 
@@ -16,7 +19,7 @@ Content-Type: application/json
     "email":"asdasd@asdasd.com"
 }
 
-### 
+### Login Test
 POST http://localhost:8080/login
 Content-Type: application/json
 
@@ -25,7 +28,7 @@ Content-Type: application/json
     "password": "123456123456"                                  
 }
 
-###
+### Logout Test
 GET http://localhost:8080/logout/
 
 

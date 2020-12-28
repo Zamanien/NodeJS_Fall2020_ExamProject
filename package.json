@@ -4,7 +4,7 @@
   "description": "NodeJS Exam Project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
     "express-rate-limit": "^5.2.3",
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.29.1",
     "mysql2": "^2.2.5",
     "socket.io": "^3.0.4"
   },

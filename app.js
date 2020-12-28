@@ -5,6 +5,8 @@ require('dotenv').config();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
+//Chat implementation
+
 //Stores the users in object (preferred stored in DB instead)
 const users = {}
 
@@ -76,6 +78,10 @@ app.get('/user', verify, (req, res) => {
 app.get('/chat', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/chat/chat.html');
 });
+
+app.get('/covid', (req, res) => {
+    return res.sendFile(__dirname + '/public/api/covid19.html');
+}); 
 
 
 
