@@ -80,7 +80,7 @@ app.get('/chat', verify, (req, res) => {
 });
 
 app.get('/covid', (req, res) => {
-    return res.sendFile(__dirname + '/public/api/covid19.html');
+    return res.sendFile(__dirname + '/public/covidTracker/covid19.html');
 }); 
 
 

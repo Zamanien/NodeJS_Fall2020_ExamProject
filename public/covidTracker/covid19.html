@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Covid Cases Worldwide</title>
 </head>
 <body>
@@ -19,28 +20,30 @@
                     <table class="table">
                         <thead class="thead-dark">
                           <tr>
-                            <th scope="col">Total Cases</th>
-                            <th scope="col">Active Cases</th>
-                            <th scope="col">Total Deaths</th>
-                            <th scope="col">Todays Deaths</th>
-                            <th scope="col">Total Recovered</th>
-                            <th scope="col">Todays Recovered</th>
-                            <th scope="col">Critial Condition</th>
-                            <th scope="col">Total Population</th>
+                            <th scope="col">Updated</th>
+                            <th scope="col">Total Cases----</th>
+                            <th scope="col">Active Cases----</th>
+                            <th scope="col">Total Deaths----</th>
+                            <th scope="col">Todays Deaths----</th>
+                            <th scope="col">Total Recovered----</th>
+                            <th scope="col">Todays Recovered----</th>
+                            <th scope="col">Critial Condition----</th>
+                            <th scope="col">Total Population-----</th>
                             <th scope="col">Countries Affected</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td><ul id="cases" style="padding-inline-start: 0px;"></ul></td>
-                            <td><ul id="active" style="padding-inline-start: 0px;"></td>
-                            <td><ul id="deaths" style="padding-inline-start: 0px;"></td>
-                            <td><ul id="todayDeaths" style="padding-inline-start: 0px;"></td>
-                            <td><ul id="recovered" style="padding-inline-start: 0px;"></td>
-                            <td><ul id="todayRecovered" style="padding-inline-start: 0px;"></td>
-                            <td><ul id="critical" style="padding-inline-start: 0px;"></td>
-                            <td><ul id="population" style="padding-inline-start: 0px;"></td>
-                            <td><ul id="affectedCountries" style="padding-inline-start: 0px;"></td>
+                            <td><ol id="updated"></ul></td>
+                            <td><ol id="cases"></ul></td>
+                            <td><ol id="active"></td>
+                            <td><ol id="deaths"></td>
+                            <td><ol id="todayDeaths"></td>
+                            <td><ol id="recovered"></td>
+                            <td><ol id="todayRecovered"></td>
+                            <td><ol id="critical"></td>
+                            <td><ol id="population"></td>
+                            <td><ol id="affectedCountries"></td>
 
                           </tr>
                           
@@ -55,6 +58,7 @@
                         const res = await fetch('https://disease.sh/v3/covid-19/all'); 
                         const json = await res.json();
 
+                        $('#updated').text(json.updated);
                         $('#cases').text(json.cases);
                         $('#active').text(json.active);
                         $('#deaths').text(json.deaths);
@@ -69,8 +73,5 @@
                 });
             </script>
 
-
-
-  
 </body>
 </html>
