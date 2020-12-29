@@ -25,6 +25,7 @@
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.17",
     "socket.io": "^3.0.4"
   },
   "devDependencies": {

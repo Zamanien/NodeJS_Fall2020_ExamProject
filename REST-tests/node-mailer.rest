@@ -1,0 +1,9 @@
+###
+POST http://localhost:9090/contact 
+Content-Type: application/json
+
+{
+    "email": "test@gmail.com",
+    "subject": "testMail",
+    "content": "Testing contact form"
+}

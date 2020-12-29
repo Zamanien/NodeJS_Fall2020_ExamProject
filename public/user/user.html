@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
+
+    <!--The navigation bar - Loaded from 'navbar.html'-->
+    <div id="navbar-fragment"></div>
+
     <h1>User Profile</h1>
 
-    <h3>Congratulations. You are logged in and have access.</h3>
+    <h4>Congratulations. You are logged in and have access.</h4>
 
-    <div>
-        <a href="../chat/chat.html" type="submit">Chat</a>
-    </div>
+    <div id="footer-fragment"></div>
+    <!--JQuery To load fragment scripts (amongst other)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+    <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
+    <script>
+        $(document).ready(function() {
+            $("#navbar-fragment").load("../fragments/navbar/navbar.html");
+            $("#header-fragment").load("../fragments/header/header.html");
+            $("#footer-fragment").load("../fragments/footer/footer.html");
+        })
+    </script>
     
     
 </body>

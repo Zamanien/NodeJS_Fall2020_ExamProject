@@ -74,8 +74,7 @@ app.get('/user', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/user/user.html');
 });
 
-
-app.get('/chat', verify, (req, res) => {
+app.get('/chat*', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/chat/chat.html');
 });
 
@@ -83,6 +82,9 @@ app.get('/covid', (req, res) => {
     return res.sendFile(__dirname + '/public/covidTracker/covid19.html');
 }); 
 
+app.get('/contact', (req, res) => {
+    return res.sendFile(__dirname + '/public/contact/contact.html');
+});
 
 
 

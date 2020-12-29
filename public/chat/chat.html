@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Side</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
+    <!--The navigation bar - Loaded from 'navbar.html'-->
+    <div id="navbar-fragment"></div>
+
     <h2>Chat Side</h2>
 
     <div class="display-name">
@@ -13,17 +17,12 @@
     </div>
 
 
-    <div class="chat-messages">
-        <div class="message">
-            <p class="meta"><span></span></p>
-            <p class="text"></p>
-        </div>
-    </div>
+
 
 
     <div>
         <form id="chatForm">
-            <input type="text" name="text-input" id="textInput" placeholder="Type here">
+            <input type="text" name="text-input" id="textInput" placeholder="Type here" autocomplete="off">
             <button type="submit">Send</button>
         </form>
     </div>
@@ -35,5 +34,18 @@
     <script src="/socket.io/socket.io.js"></script>
     <!-- Allows acces to IO methods and more-->
     <script src="chat.js"></script>
+
+    <div id="footer-fragment"></div>
+    <!--JQuery To load fragment scripts (amongst other)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+    <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
+    <script>
+        $(document).ready(function() {
+            $("#navbar-fragment").load("../fragments/navbar/navbar.html");
+            $("#header-fragment").load("../fragments/header/header.html");
+            $("#footer-fragment").load("../fragments/footer/footer.html");
+        })
+    </script>
 </body>
 </html>

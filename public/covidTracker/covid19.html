@@ -3,75 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Covid Cases Worldwide</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-    <div class="content-wrap">
+  <!--The navigation bar - Loaded from 'navbar.html'-->
+  <div id="navbar-fragment"></div>
+  
+<div class="content-wrap">
+    
+      <div class="container">
+      
+        <h2 class="display-4 text-center">Corona Worldwide</h2>
+          
+              <h4>Latest Stats</h4>
+              
+              <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Updated</th>
+                      <th scope="col">Total Cases</th>
+                      <th scope="col">Active Cases</th>
+                      <th scope="col">Total Deaths</th>
+                      <th scope="col">Todays Deaths</th>
+                      <th scope="col">Total Recovered</th>
+                      <th scope="col">Todays Recovered</th>
+                      <th scope="col">Critial Condition</th>
+                      <th scope="col">Total Population</th>
+                      <th scope="col">Countries Affected</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><ol id="updated"          style="padding-inline-start: 0px;"></ul></td>
+                      <td><ol id="cases"            style="padding-inline-start: 0px;"></ul></td>
+                      <td><ol id="active"           style="padding-inline-start: 0px;"></td>
+                      <td><ol id="deaths"           style="padding-inline-start: 0px;"></td>
+                      <td><ol id="todayDeaths"      style="padding-inline-start: 0px;"></td>
+                      <td><ol id="recovered"        style="padding-inline-start: 0px;"></td>
+                      <td><ol id="todayRecovered"   style="padding-inline-start: 0px;"></td>
+                      <td><ol id="critical"         style="padding-inline-start: 0px;"></td>
+                      <td><ol id="population"       style="padding-inline-start: 0px;"></td>
+                      <td><ol id="affectedCountries"style="padding-inline-start: 0px;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+      </div>
+
+
+          <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+          <script>
+              $(document).ready(function() {    
+                  async function worldwideCovid(){
+                      const res = await fetch('https://disease.sh/v3/covid-19/all'); 
+                      const json = await res.json();
+
+                      $('#updated').text(json.updated);
+                      $('#cases').text(json.cases);
+                      $('#active').text(json.active);
+                      $('#deaths').text(json.deaths);
+                      $('#todayDeaths').text(json.todayDeaths);
+                      $('#recovered').text(json.recovered);
+                      $('#todayRecovered').text(json.todayRecovered);
+                      $('#critical').text(json.critical);
+                      $('#population').text(json.population);
+                      $('#affectedCountries').text(json.affectedCountries);                      
+                  }
+                worldwideCovid(); 
+              });
+          </script>
+
         
-        <div class="jumbotron"> 
-            <div class="container">
-            
-              <h2 class="display-4">Corona Worldwide</h2>
-                <p class="lead"> 
 
-                    <h3>Latest Stats</h3>
-                    
-                    <table class="table">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">Updated</th>
-                            <th scope="col">Total Cases----</th>
-                            <th scope="col">Active Cases----</th>
-                            <th scope="col">Total Deaths----</th>
-                            <th scope="col">Todays Deaths----</th>
-                            <th scope="col">Total Recovered----</th>
-                            <th scope="col">Todays Recovered----</th>
-                            <th scope="col">Critial Condition----</th>
-                            <th scope="col">Total Population-----</th>
-                            <th scope="col">Countries Affected</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><ol id="updated"></ul></td>
-                            <td><ol id="cases"></ul></td>
-                            <td><ol id="active"></td>
-                            <td><ol id="deaths"></td>
-                            <td><ol id="todayDeaths"></td>
-                            <td><ol id="recovered"></td>
-                            <td><ol id="todayRecovered"></td>
-                            <td><ol id="critical"></td>
-                            <td><ol id="population"></td>
-                            <td><ol id="affectedCountries"></td>
-
-                          </tr>
-                          
-                        </tbody>
-                      </table>
-
-
-            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-            <script>
-                $(document).ready(function() {    
-                    async function worldwideCovid(){
-                        const res = await fetch('https://disease.sh/v3/covid-19/all'); 
-                        const json = await res.json();
-
-                        $('#updated').text(json.updated);
-                        $('#cases').text(json.cases);
-                        $('#active').text(json.active);
-                        $('#deaths').text(json.deaths);
-                        $('#todayDeaths').text(json.todayDeaths);
-                        $('#recovered').text(json.recovered);
-                        $('#todayRecovered').text(json.todayRecovered);
-                        $('#critical').text(json.critical);
-                        $('#population').text(json.population);
-                        $('#affectedCountries').text(json.affectedCountries);                      
-                    }
-                  worldwideCovid(); 
-                });
-            </script>
+        <div id="footer-fragment"></div>
+        <!--JQuery To load fragment scripts (amongst other)-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        
+        <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
+        <script>
+            $(document).ready(function() {
+                $("#navbar-fragment").load("../fragments/navbar/navbar.html");
+                $("#header-fragment").load("../fragments/header/header.html");
+                $("#footer-fragment").load("../fragments/footer/footer.html");
+            })
+        </script>
 
 </body>
 </html>

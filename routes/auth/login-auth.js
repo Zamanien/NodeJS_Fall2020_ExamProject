@@ -106,7 +106,7 @@ router.get('/logout', async (req, res) => {
         return res.status(200).send('Successfully logged out');
         
     } else {
-        return res.status(401).send('Not logged in. Please login to view the page.');
+        return res.status(401).send('Not logged in.');
         
     }
 
