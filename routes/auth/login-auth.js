@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const { validateLogin } = require('../util/validation.js');
 const rateLimiter = require('../util/rate-limiter.js');
 const cookieParser = require('cookie-parser');
-const verify = require('./verify-JWT.js');
 
 //Express middleware - allows parsing of cookies
 router.use(cookieParser());
@@ -55,7 +54,7 @@ router.post('/login', rateLimiter, async (req, res) => {
 
     //generate access token - expires in: 10 min
     function generateAccessToken(user) {
-        return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '600s' });
+        return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '6s' });
     }
 
 });

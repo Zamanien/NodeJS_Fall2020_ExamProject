@@ -1,4 +1,25 @@
-.container {   
-    padding: 25px;   
-    background-color: white;  
-}   
+
+
+#b1{
+    padding-left: 10px;
+}
+
+li{
+    padding-left: 10px;
+}
+
+h5{
+    font-weight: bold;
+}
+
+h3{
+    font-weight: lighter;
+}
+
+#title, #reqTitle1, #reqTitle2, #reqTitle3, #reqTitle4, #examTitle, #guideTitle{
+    font-weight: bold;
+}
+
+#title{
+    padding-top: 50px;
+}

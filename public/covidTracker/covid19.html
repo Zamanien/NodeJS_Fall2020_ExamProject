@@ -2,115 +2,106 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Covid Cases Worldwide</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="covid19Css.css" media="screen"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Stats</title>
+    <link rel="stylesheet" href="./covid.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 </head>
 
 <body>
-
-
   <!--The navigation bar - Loaded from 'navbar.html'-->
   <div id="navbar-fragment"></div>
 
+    <h2 class="text-center" id="n1">Corona Worldwide</h2>
 
-  <div class="content-wrap">
+  <div class="container">
 
-    <div class="container">
+    <h4 id="textTest">Latest Stats</h4>
 
-      <h2 class="display-4 text-center">Corona Worldwide</h2>
-
-      <h4>Latest Stats</h4>
-
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th>Total Cases</th>
-            <th>Active Cases</th>
-            <th>Total Deaths</th>
-            <th>Todays Deaths</th>
-            <th>Total Recovered</th>
-            <th>Todays Recovered</th>
-            <th>Critial Condition</th>
-            <th>Total Population</th>
-            <th>Countries Affected</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <ol id="cases">
-                </ul>
-            </td>
-            <td>
-              <ol id="active">
-            </td>
-            <td>
-              <ol id="deaths">
-            </td>
-            <td>
-              <ol id="todayDeaths">
-            </td>
-            <td>
-              <ol id="recovered">
-            </td>
-            <td>
-              <ol id="todayRecovered">
-            </td>
-            <td>
-              <ol id="critical">
-            </td>
-            <td>
-              <ol id="population">
-            </td>
-            <td>
-              <ol id="affectedCountries">
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script>
-      $(document).ready(function () {
-        async function worldwideCovid() {
-          const res = await fetch('https://disease.sh/v3/covid-19/all');
-          const json = await res.json();
-
-          $('#cases').text(json.cases);
-          $('#active').text(json.active);
-          $('#deaths').text(json.deaths);
-          $('#todayDeaths').text(json.todayDeaths);
-          $('#recovered').text(json.recovered);
-          $('#todayRecovered').text(json.todayRecovered);
-          $('#critical').text(json.critical);
-          $('#population').text(json.population);
-          $('#affectedCountries').text(json.affectedCountries);
-        }
-        worldwideCovid();
-      });
-    </script>
-
-
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Total Cases</th>
+          <th>Active Cases</th>
+          <th>Total Deaths</th>
+          <th>Todays Deaths</th>
+          <th>Total Recovered</th>
+          <th>Todays Recovered</th>
+          <th>Critial Condition</th>
+          <th>Total Population</th>
+          <th>Countries Affected</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <ol id="cases">
+              </ul>
+          </td>
+          <td>
+            <ol id="active">
+          </td>
+          <td>
+            <ol id="deaths">
+          </td>
+          <td>
+            <ol id="todayDeaths">
+          </td>
+          <td>
+            <ol id="recovered">
+          </td>
+          <td>
+            <ol id="todayRecovered">
+          </td>
+          <td>
+            <ol id="critical">
+          </td>
+          <td>
+            <ol id="population">
+          </td>
+          <td>
+            <ol id="affectedCountries">
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-    <div id="footer-fragment"></div>
-    <!--JQuery To load fragment scripts (amongst other)-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script>
+    $(document).ready(function () {
+      async function worldwideCovid() {
+        const res = await fetch('https://disease.sh/v3/covid-19/all');
+        const json = await res.json();
+
+        $('#cases').text(json.cases);
+        $('#active').text(json.active);
+        $('#deaths').text(json.deaths);
+        $('#todayDeaths').text(json.todayDeaths);
+        $('#recovered').text(json.recovered);
+        $('#todayRecovered').text(json.todayRecovered);
+        $('#critical').text(json.critical);
+        $('#population').text(json.population);
+        $('#affectedCountries').text(json.affectedCountries);
+      }
+      worldwideCovid();
+    });
+  </script>
 
 
-    <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
-    <script>
-      $(document).ready(function () {
-        $("#navbar-fragment").load("../fragments/navbar/navbar.html");
-        $("#footer-fragment").load("../fragments/footer/footer.html");
-      })
-    </script>
+  <div id="footer-fragment"></div>
+  <!--JQuery To load fragment scripts (amongst other)-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-</body>
-
-</html>
+  <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
+  <script>
+    $(document).ready(function () {
+      $("#navbar-fragment").load("../fragments/navbar/navbar.html");
+      $("#footer-fragment").load("../fragments/footer/footer.html");
+    })
+  </script>
