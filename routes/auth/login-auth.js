@@ -54,7 +54,7 @@ router.post('/login', rateLimiter, async (req, res) => {
 
     //generate access token - expires in: 10 min
     function generateAccessToken(user) {
-        return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '6s' });
+        return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '600s' });
     }
 
 });
