@@ -1,8 +1,6 @@
 const joi = require('joi');
-const express = require('express').Router;
 
 //Register validation
-
 const validateRegister = (data) => {
 
     const schema = joi.object({
@@ -20,6 +18,8 @@ const validateRegister = (data) => {
     return schema.validate(data);
 }
 
+
+//Login validation
 const validateLogin = (data) => {
 
     const schema = joi.object({
@@ -34,5 +34,6 @@ const validateLogin = (data) => {
 }
 
 
-module.exports.validateRegister = validateRegister; 
+//Exports both methods
+module.exports.validateRegister = validateRegister;
 module.exports.validateLogin = validateLogin; 

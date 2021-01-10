@@ -1,91 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 </head>
+
 <body>
     <!--The navigation bar - Loaded from 'navbar.html'-->
     <div id="navbar-fragment"></div>
 
-            <div class="container">
-                <h1>Index Page</h1>
+    <div class="container">
+        <h1>Index Page</h1>
 
-                <h3>Exam Project for NodeJS Fall 2020. </h3><br>
-                
-                <h4>Exam in Fullstack Node.js Autumn 2020</h4>
-                
-                <h5>Both individual and group work is allowed. No groups larger than 3. But you need to understand all the code. Collaborations across electives are also allowed.</h5> <br>
-                
-                <h5>Deadline: </h5>
-                <p> Wiseflow for when the hand-in deadline is but you can still work on your project up until the exam.</p>
-                
-                <h5>Hard requirements: </h5>
-                <p>You need to fulfill these requirements to pass the exam:</p>
-                
-                <h5>Backend</h5>
-                <li>Use Express [Check] </li>
-                <li>Use a database [Check] </li>
-                <li>Implement Auth [Check - needs re-check]</li><br>
-                
-                <h5>Frontend</h5>
-                
-                <h5>Backend</h5>
-                <li>Use plain HTML [Check] </li>
-                <li>Use Ajax or Fetch [Check] </li>
-                <li>Use Sockets [Check - needs re-check]</li><br>
-                
-                <h5>Soft Requirements</h5>
-                <li>You must have a clean code base and your code style should be consistent.[Undone]</li>
-                <li>You must make an attempt at styling your website. Styling frameworks can be used. [Undone] </li>
-                <li>Host your application. If you did not host your application explain during the exam what you tried and why you didn’t. [Undone]</li><br>
-                
-                <h5>Exam</h5>
-                <li>First 5-6 minutes, demo your exam project</li>
-                <li>We will talk about the code of your exam project</li>
-                <li>You will then be asked to live code!</li><br><br>
-                
-                <p>|-----------------------------------------------------------------------------------------------------------------------------|<br>
-                </p><br><br>
-                
-                <h3>Guide</h3>
-                <h5>To launch the project</h5>
-                
-                <li>Clone the repo</li>
-                <li>Correct the .env-sample file (Fill out and remove '-sample').</li>
-                <li>Make sure to create MYSQL table based on the 'createDB.sql' file.</li>
-                <li>Open terminal & type: 'npm i'</li>
-                <li>Launch the app.</li> <br>
-                
-                <h5>Link to Website</h5>
-                <p>Coming soon</p>
-                
-                </div>
-                </main>
-        
+        <h3>Exam Project for NodeJS Fall 2020. </h3><br>
 
+        <h4>Exam in Fullstack Node.js Autumn 2020</h4>
 
+        <h5>Both individual and group work is allowed. No groups larger than 3. But you need to understand all the code.
+            Collaborations across electives are also allowed.</h5> <br>
 
-    
-    
-    
+        <h5>Deadline: </h5>
+        <p> Wiseflow for when the hand-in deadline is but you can still work on your project up until the exam.</p>
+
+        <h5>Hard requirements: </h5>
+        <p>You need to fulfill these requirements to pass the exam:</p>
+
+        <h5>Backend</h5>
+        <li>Use Express [Check] </li>
+        <li>Use a database [Check] </li>
+        <li>Implement Auth [Check - needs re-check]</li><br>
+
+        <h5>Frontend</h5>
+
+        <h5>Backend</h5>
+        <li>Use plain HTML [Check] </li>
+        <li>Use Ajax or Fetch [Check] </li>
+        <li>Use Sockets [Check - needs re-check]</li><br>
+
+        <h5>Soft Requirements</h5>
+        <li>You must have a clean code base and your code style should be consistent.[Undone]</li>
+        <li>You must make an attempt at styling your website. Styling frameworks can be used. [Undone] </li>
+        <li>Host your application. If you did not host your application explain during the exam what you tried and why
+            you didn’t. [Undone]</li><br>
+
+        <h5>Exam</h5>
+        <li>First 5-6 minutes, demo your exam project</li>
+        <li>We will talk about the code of your exam project</li>
+        <li>You will then be asked to live code!</li><br><br>
+
+        <p>|-----------------------------------------------------------------------------------------------------------------------------|<br>
+        </p><br><br>
+
+        <h3>Guide</h3>
+        <h5>To launch the project</h5>
+
+        <li>Clone the repo</li>
+        <li>Correct the .env-sample file (Fill out and remove '-sample').</li>
+        <li>Make sure to create MYSQL table based on the 'createDB.sql' file.</li>
+        <li>Open terminal & type: 'npm i'</li>
+        <li>Launch the app.</li> <br>
+
+        <h5>Link to Website</h5>
+        <p>Coming soon</p>
+
+    </div>
+    </main>
 
 
-        <div id="footer-fragment"></div>
-        <!--JQuery To load fragment scripts (amongst other)-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-        
-        <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
-        <script>
-            $(document).ready(function() {
-                $("#navbar-fragment").load("../fragments/navbar/navbar.html");
-                $("#header-fragment").load("../fragments/header/header.html");
-                $("#footer-fragment").load("../fragments/footer/footer.html");
-            })
-        </script>
+
+
+
+
+
+
+
+    <div id="footer-fragment"></div>
+    <!--JQuery To load fragment scripts (amongst other)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
+    <script>
+        $(document).ready(function () {
+            $("#navbar-fragment").load("../fragments/navbar/navbar.html");
+            $("#footer-fragment").load("../fragments/footer/footer.html");
+        })
+    </script>
 
 </body>
+
 </html>

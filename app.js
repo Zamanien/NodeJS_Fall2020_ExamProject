@@ -10,15 +10,15 @@ const io = require('socket.io')(server);
 //Stores the users in object (preferred stored in DB instead)
 const users = {}
 
-io.on('connection', socket =>{
+io.on('connection', socket => {
 
-     //Emits welcome message
-     socket.broadcast.emit('message', 'Welcome to Chat-side');     
+    //Emits welcome message
+    socket.broadcast.emit('message', 'Welcome to Chat-side');
 
     //Listens for chatMessage
     socket.on('sendMessage', message => {
         socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] })
-            
+
     });
 
     //Displays username - gets id from built in socket method
@@ -41,7 +41,7 @@ io.on('connection', socket =>{
 //Allows app to handle JSON objects from POST requests
 app.use(express.json());
 //Allows the app to read incoming objects as Strings or Arrays
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
 const register = require('./routes/auth/register-auth');
 app.use(register);
@@ -80,7 +80,7 @@ app.get('/chat*', verify, (req, res) => {
 
 app.get('/covid', (req, res) => {
     return res.sendFile(__dirname + '/public/covidTracker/covid19.html');
-}); 
+});
 
 app.get('/contact', (req, res) => {
     return res.sendFile(__dirname + '/public/contact/contact.html');
@@ -94,15 +94,15 @@ app.get('/contact', (req, res) => {
 
 
 
-const PORT = process.env.PORT || 9090;  
+const PORT = process.env.PORT || 9090;
 
 //every url not specified before this - redirects to /index
 app.get('/*', (req, res) => {
-    return res.redirect('/index')
+    return res.redirect('/index');
 });
 //Method - listens for requests on port (8080)
 server.listen(PORT, (error) => {
-    if(error){
+    if (error) {
         console.log(`Error launching server: ${error}`);
     } else {
         console.log(`Running on port: ${PORT}`);

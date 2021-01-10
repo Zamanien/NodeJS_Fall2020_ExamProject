@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Side</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
 <body>
     <!--The navigation bar - Loaded from 'navbar.html'-->
@@ -28,6 +29,7 @@
     </div>
 
 
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.js" integrity="sha512-53y53BQwxZvk4YGd9SkHPqI7nDwlIIFZ4D2BSJG08Co7y6O3YsWeRtO6trPtdoyqfTCTkTbCulNosIAI6E4UvQ==" crossorigin="anonymous"></script>
     <!-- Socket scripts -->
     <!-- Allows access to frontend Library-->
@@ -35,6 +37,8 @@
     <!-- Allows acces to IO methods and more-->
     <script src="chat.js"></script>
 
+
+    
     <div id="footer-fragment"></div>
     <!--JQuery To load fragment scripts (amongst other)-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
@@ -43,7 +47,6 @@
     <script>
         $(document).ready(function() {
             $("#navbar-fragment").load("../fragments/navbar/navbar.html");
-            $("#header-fragment").load("../fragments/header/header.html");
             $("#footer-fragment").load("../fragments/footer/footer.html");
         })
     </script>
