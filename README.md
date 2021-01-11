@@ -12,17 +12,17 @@ You need to fulfill these requirements to pass the exam:<br>
 ### Backend <br>
 - Use Express         [Check] <br>
 - Use a database      [Check] <br>
-- Implement Auth      [Check - needs re-check]<br>
+- Implement Auth      [Check]<br>
 
 ### Frontend
 - Use plain HTML      [Check]<br>
-- Use Ajax or Fetch   [Ongoing]<br>
+- Use Ajax or Fetch   [Check]<br>
 - Use Sockets         [Check]<br>
 
 ### Soft requirements:  
-- You must have a clean code base and your code style should be consistent.[Undone] <br>
-- You must make an attempt at styling your website. Styling frameworks can be used. [Undone] <br>
-- Host your application. If you did not host your application explain during the exam what you tried and why you didn’t. [Undone] <br>
+- You must have a clean code base and your code style should be consistent.[Check] <br>
+- You must make an attempt at styling your website. Styling frameworks can be used. [Check] <br>
+- Host your application. If you did not host your application explain during the exam what you tried and why you didn’t. [Check] <br>
 
 #### Exam:
 First 5-6 minutes, demo your exam project<br>
@@ -43,5 +43,6 @@ You will then be asked to live code!<br>
  
 
 #### Link to website: <br>
-- Coming soon
+- https://35.175.13.249:8080
+*Won't have a proper domain name
 
