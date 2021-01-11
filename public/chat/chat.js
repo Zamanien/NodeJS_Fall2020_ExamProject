@@ -47,7 +47,6 @@ chatData.addEventListener('submit', (e) => {
 
     //Clear input field after submit
     e.target.elements.textInput.value = '';
-    e.target.elements.textInput.focus();
 });
 
 

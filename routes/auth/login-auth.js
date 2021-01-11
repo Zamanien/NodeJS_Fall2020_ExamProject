@@ -60,7 +60,7 @@ router.post('/login', rateLimiter, async (req, res) => {
 });
 
 //renews accesstoken on the basis of existing accesstoken
-router.post('/token', async (req, res) => {
+router.get('/token', async (req, res) => {
     const refreshToken = req.cookies.refreshToken;
     if (!refreshToken) return res.status(401).send('Error refreshing Token. Try again');
 
@@ -73,7 +73,6 @@ router.post('/token', async (req, res) => {
 
         try {
             const accessToken = generateAccessToken({ user: user.name });
-            //res.json({accesToken: accessToken});
             res.cookie('accessToken', accessToken, { httpOnly: true });
             return res.send('Token renewed');
         } catch {

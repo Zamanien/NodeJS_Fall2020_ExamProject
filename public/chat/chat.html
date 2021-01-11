@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Side</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" href="chat.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
+
 <body>
     <!--The navigation bar - Loaded from 'navbar.html'-->
     <div id="navbar-fragment"></div>
 
-    <h2>Chat Side</h2>
+    <h2 id="title">Chat Side</h2>
 
     <div class="display-name">
         <p class="text"></p>
     </div>
 
-
-
-
-
-    <div>
+    <div class="card">
         <form id="chatForm">
             <input type="text" name="text-input" id="textInput" placeholder="Type here" autocomplete="off">
             <button type="submit">Send</button>
@@ -29,26 +30,23 @@
     </div>
 
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.js" integrity="sha512-53y53BQwxZvk4YGd9SkHPqI7nDwlIIFZ4D2BSJG08Co7y6O3YsWeRtO6trPtdoyqfTCTkTbCulNosIAI6E4UvQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.js"
+        integrity="sha512-53y53BQwxZvk4YGd9SkHPqI7nDwlIIFZ4D2BSJG08Co7y6O3YsWeRtO6trPtdoyqfTCTkTbCulNosIAI6E4UvQ=="
+        crossorigin="anonymous"></script>
     <!-- Socket scripts -->
-    <!-- Allows access to frontend Library-->
-    <script src="/socket.io/socket.io.js"></script>
-    <!-- Allows acces to IO methods and more-->
-    <script src="chat.js"></script>
+  <!-- Allows acces to IO methods and more-->    
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="chat.js"></script>
 
 
-    
     <div id="footer-fragment"></div>
     <!--JQuery To load fragment scripts (amongst other)-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Function used to call on Navigation - For avoiding Boilerplate code-->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#navbar-fragment").load("../fragments/navbar/navbar.html");
             $("#footer-fragment").load("../fragments/footer/footer.html");
         })
     </script>
-</body>
-</html>

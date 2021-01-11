@@ -1,0 +1,20 @@
+#title, h4{
+    padding-top: 30px;
+    text-align: center;
+}
+
+
+h5{
+    padding-top: 50px;
+}
+
+tr{
+    width: 1000;
+    height: auto;
+}
+
+td{
+    width: auto;
+    height: auto;
+    text-align: start;
+}

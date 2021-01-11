@@ -10,6 +10,8 @@ const io = require('socket.io')(server);
 //Stores the users in object (preferred stored in DB instead)
 const users = {}
 
+
+//assignes each user a socket
 io.on('connection', socket => {
 
     //Emits welcome message
@@ -17,8 +19,10 @@ io.on('connection', socket => {
 
     //Listens for chatMessage
     socket.on('sendMessage', message => {
-        socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] })
-
+        socket.broadcast.emit('chatMessage', {
+            message: message,
+            name: users[socket.id]
+        });
     });
 
     //Displays username - gets id from built in socket method
@@ -49,10 +53,6 @@ app.use(register);
 const login = require('./routes/auth/login-auth');
 app.use(login);
 
-//JWT Authentication test
-const postRoute = require('./routes/posts');
-app.use(postRoute);
-
 
 //built in middleware - server static files (HTML files)
 app.use(express.static(__dirname + '/public/'));
@@ -70,7 +70,7 @@ app.get('/login', (req, res) => {
     return res.sendFile(__dirname + '/public/login/login.html');
 });
 
-app.get('/user', verify, (req, res) => {
+app.get('/user*', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/user/user.html');
 });
 
@@ -82,10 +82,10 @@ app.get('/covid', (req, res) => {
     return res.sendFile(__dirname + '/public/covidTracker/covid19.html');
 });
 
-app.get('/contact', (req, res) => {
-    return res.sendFile(__dirname + '/public/contact/contact.html');
+//every url not specified before this - redirects to /index
+app.get('/*', (req, res) => {
+    return res.redirect('/index');
 });
-
 
 
 
@@ -96,10 +96,6 @@ app.get('/contact', (req, res) => {
 
 const PORT = process.env.PORT || 9090;
 
-//every url not specified before this - redirects to /index
-app.get('/*', (req, res) => {
-    return res.redirect('/index');
-});
 //Method - listens for requests on port (8080)
 server.listen(PORT, (error) => {
     if (error) {

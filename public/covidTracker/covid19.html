@@ -2,22 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corona Stats</title>
-    <link rel="stylesheet" href="./covid.css" type="text/css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corona Stats</title>
+  <link rel="stylesheet" href="./covid.css" type="text/css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
   <!--The navigation bar - Loaded from 'navbar.html'-->
   <div id="navbar-fragment"></div>
 
-    <h2 class="text-center" id="n1">Corona Worldwide</h2>
+  <h2 id="n1">Corona Worldwide</h2>
 
   <div class="container">
 
@@ -40,37 +39,47 @@
       <tbody>
         <tr>
           <td>
-            <ol id="cases">
-              </ul>
+            <p id="cases">
           </td>
           <td>
-            <ol id="active">
+            <p id="active">
           </td>
           <td>
-            <ol id="deaths">
+            <p id="deaths">
           </td>
           <td>
-            <ol id="todayDeaths">
+            <p id="todayDeaths">
           </td>
           <td>
-            <ol id="recovered">
+            <p id="recovered">
           </td>
           <td>
-            <ol id="todayRecovered">
+            <p id="todayRecovered">
           </td>
           <td>
-            <ol id="critical">
+            <p id="critical">
           </td>
           <td>
-            <ol id="population">
+            <p id="population">
           </td>
           <td>
-            <ol id="affectedCountries">
+            <p id="affectedCountries">
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <style>
+    tr{
+      text-align: start;
+    }
+    #n1{
+      padding-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
 
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script>
@@ -93,7 +102,6 @@
     });
   </script>
 
-
   <div id="footer-fragment"></div>
   <!--JQuery To load fragment scripts (amongst other)-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -103,5 +111,6 @@
     $(document).ready(function () {
       $("#navbar-fragment").load("../fragments/navbar/navbar.html");
       $("#footer-fragment").load("../fragments/footer/footer.html");
-    })
+
+    });
   </script>
