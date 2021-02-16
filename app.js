@@ -7,7 +7,7 @@ const io = require('socket.io')(server);
 
 //Chat implementation
 
-//Stores the users in object (preferred stored in DB instead)
+//Stores the users 
 const users = {}
 
 
@@ -94,7 +94,7 @@ app.get('/*', (req, res) => {
 
 
 
-const PORT = process.env.PORT || 9090;
+const PORT = process.env.PORT || 8080;
 
 //Method - listens for requests on port (8080)
 server.listen(PORT, (error) => {

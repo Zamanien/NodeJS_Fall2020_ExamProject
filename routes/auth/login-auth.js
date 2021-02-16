@@ -6,6 +6,8 @@ const { validateLogin } = require('../util/validation.js');
 const rateLimiter = require('../util/rate-limiter.js');
 const cookieParser = require('cookie-parser');
 
+
+const value = 1;
 //Express middleware - allows parsing of cookies
 router.use(cookieParser());
 

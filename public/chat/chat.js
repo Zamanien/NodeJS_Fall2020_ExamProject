@@ -24,7 +24,6 @@ socket.on('user-disconnected', name => {
 //Displays the message sent from backend to the frontend
 socket.on('chatMessage', data => {
     addMessages(`${data.name}: ${data.message}`);
-    
 
     //scroll down to bottom everytime message is received
     messageInput.scrollTop = messageInput.scrollHeight; 
