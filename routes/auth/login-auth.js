@@ -94,7 +94,7 @@ router.get('/logout', async (req, res) => {
         res.clearCookie('refreshToken');
         res.clearCookie('accessToken');
         //return res.status(200).send('Successfully logged out');
-        res.status(200).redirect('http://localhost:8080/login/');
+        res.status(200).redirect('/login');
 
     } else {
         return res.status(401).send('Not logged in.');
