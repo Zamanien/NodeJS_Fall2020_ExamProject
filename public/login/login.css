@@ -1,5 +1,4 @@
 h2{
-    
     text-align: center;
     margin: auto;
     padding-top: 12%;
@@ -29,10 +28,10 @@ h2{
 
 #globe{
     margin-left: 0;
-    margin-top: -28%;
+    margin-top: -32%;
     float: inline-start;
     width: auto;
-    height: 950px;
+    height: 735px;
 }
 
 #formLogin{
