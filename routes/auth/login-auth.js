@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const { validateLogin } = require('../util/validation.js');
 const rateLimiter = require('../util/rate-limiter.js');
 const cookieParser = require('cookie-parser');
-const verify = require('./verify-JWT.js');
 
 //Express middleware - allows parsing of cookies
 router.use(cookieParser());
@@ -93,7 +92,8 @@ router.get('/logout', async (req, res) => {
         await pool.execute('DELETE FROM refreshTokens WHERE token = ?', [refreshToken]);
         res.clearCookie('refreshToken');
         res.clearCookie('accessToken');
-        return res.status(200).send('Successfully logged out');
+        //return res.status(200).send('Successfully logged out');
+        res.status(200).redirect('http://localhost:8080/login/');
 
     } else {
         return res.status(401).send('Not logged in.');

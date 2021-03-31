@@ -1,9 +1,10 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const verify = require('./routes/auth/verify-JWT');
-require('dotenv').config();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+require('dotenv').config();
 
 //Chat implementation
 
@@ -17,7 +18,7 @@ io.on('connection', socket => {
 
     //Listens for chatMessage
     socket.on('sendMessage', message => {
-        socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] })
+        socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] });
 
     });
 
@@ -43,22 +44,19 @@ app.use(express.json());
 //Allows the app to read incoming objects as Strings or Arrays
 app.use(express.urlencoded({ extended: true }));
 
+//Import Routes
 const register = require('./routes/auth/register-auth');
 app.use(register);
 
 const login = require('./routes/auth/login-auth');
 app.use(login);
 
-//JWT Authentication test
-const postRoute = require('./routes/posts');
-app.use(postRoute);
-
 
 //built in middleware - server static files (HTML files)
-app.use(express.static(__dirname + '/public/'));
+app.use(express.static(path.join(__dirname + '/public')));
 
 //index route
-app.get('/index', (req, res) => {
+app.get('/index', verify, (req, res) => {
     return res.sendFile(__dirname + '/index/index.html');
 });
 
@@ -70,6 +68,10 @@ app.get('/login', (req, res) => {
     return res.sendFile(__dirname + '/public/login/login.html');
 });
 
+app.get('/', (req, res) => {
+    return res.redirect('/login');
+});
+
 app.get('/user', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/user/user.html');
 });
@@ -78,13 +80,14 @@ app.get('/chat*', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/chat/chat.html');
 });
 
-app.get('/covid', (req, res) => {
+app.get('/covid', verify,(req, res) => {
     return res.sendFile(__dirname + '/public/covidTracker/covid19.html');
 });
 
-app.get('/contact', (req, res) => {
+app.get('/contact', verify,(req, res) => {
     return res.sendFile(__dirname + '/public/contact/contact.html');
 });
+
 
 
 
@@ -98,8 +101,9 @@ const PORT = process.env.PORT || 9090;
 
 //every url not specified before this - redirects to /index
 app.get('/*', (req, res) => {
-    return res.redirect('/index');
+    return res.redirect(verify, '/index');
 });
+
 //Method - listens for requests on port (8080)
 server.listen(PORT, (error) => {
     if (error) {

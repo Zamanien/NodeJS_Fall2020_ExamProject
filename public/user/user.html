@@ -5,19 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="user.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
-
     <!--The navigation bar - Loaded from 'navbar.html'-->
     <div id="navbar-fragment"></div>
 
-    <h1>User Profile</h1>
 
-    <h4>Congratulations. You are logged in and have access.</h4>
+    <div class="container">
+        <h2 id="title">User Profile</h2>
+
+        <h4 id="intro">Congratulations. You are logged in and have access.</h4> 
+        
+        <h5>Here is a little joke for you</h5>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Setup</th>
+                    <th>Delivery</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p id="id"></p>
+                    </td>
+                    <td>
+                        <p id="category"></p>
+                    </td>
+                    <td>
+                        <p id="setup"></p>
+                    </td>
+                    <td>
+                        <p id="delivery"></p>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <div id="footer-fragment"></div>
     <!--JQuery To load fragment scripts (amongst other)-->
@@ -28,7 +60,21 @@
         $(document).ready(function () {
             $("#navbar-fragment").load("../fragments/navbar/navbar.html");
             $("#footer-fragment").load("../fragments/footer/footer.html");
-        })
+
+            $(document).ready(function() {
+                async function randomJoke(){
+                    const res = await fetch('https://v2.jokeapi.dev/joke/any');
+                    const json = await res.json();
+ 
+                    $('#id').text(json.id);
+                    $('#category').text(json.category);
+                    $('#setup').text(json.setup);
+                    $('#delivery').text(json.delivery);
+
+                }
+                randomJoke();
+            });
+        });
     </script>
 
 

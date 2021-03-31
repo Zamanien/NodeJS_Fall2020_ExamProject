@@ -6,6 +6,8 @@
     <title>Chat Side</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <link rel="stylesheet" type="text/css" href="./chat.css"/>
+
 </head>
 <body>
     <!--The navigation bar - Loaded from 'navbar.html'-->
@@ -21,10 +23,10 @@
 
 
 
-    <div>
+    <div id="chat_form">
         <form id="chatForm">
             <input type="text" name="text-input" id="textInput" placeholder="Type here" autocomplete="off">
-            <button type="submit">Send</button>
+            <button type="submit" class="btn btn-dark" >Send</button>
         </form>
     </div>
 
