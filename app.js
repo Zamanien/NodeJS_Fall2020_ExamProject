@@ -8,9 +8,11 @@ require('dotenv').config();
 
 //Chat implementation
 
-//Stores the users in object (preferred stored in DB instead)
+//Stores the users 
 const users = {}
 
+
+//assignes each user a socket
 io.on('connection', socket => {
 
     //Emits welcome message
@@ -95,9 +97,8 @@ app.get('/contact', verify,(req, res) => {
 
 
 
+const PORT = process.env.PORT || 8080;
 
-
-const PORT = process.env.PORT || 9090;
 
 //every url not specified before this - redirects to /index
 app.get('/*', (req, res) => {
