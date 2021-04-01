@@ -55,11 +55,11 @@ app.use(login);
 
 
 //built in middleware - server static files (HTML files)
-app.use(express.static(path.join(__dirname + '/public')));
-
+//app.use(express.static(path.join(__dirname + 'public/')));
+app.use(express.static(__dirname + "/public"));
 //index route
-app.get('/index', verify, (req, res) => {
-    return res.sendFile(__dirname + '/index/index.html');
+app.get('/index', verify, (req, res) =>{
+    return res.sendFile(__dirname + '/public/index/index1.html')
 });
 
 app.get('/register', (req, res) => {
@@ -70,7 +70,7 @@ app.get('/login', (req, res) => {
     return res.sendFile(__dirname + '/public/login/login.html');
 });
 
-app.get('/', (req, res) => {
+app.get('/', verify, (req, res) => {
     return res.redirect('/login');
 });
 
@@ -101,9 +101,7 @@ const PORT = process.env.PORT || 8080;
 
 
 //every url not specified before this - redirects to /index
-app.get('/*', (req, res) => {
-    return res.redirect(verify, '/index');
-});
+
 
 //Method - listens for requests on port (8080)
 server.listen(PORT, (error) => {
