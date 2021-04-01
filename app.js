@@ -58,8 +58,8 @@ app.use(login);
 //app.use(express.static(path.join(__dirname + 'public/')));
 app.use(express.static(__dirname + "/public"));
 //index route
-app.get('/index', verify, (req, res) =>{
-    return res.sendFile(__dirname + '/public/index/index1.html')
+app.get('/start', verify, (req, res) =>{
+    return res.sendFile(__dirname + '/public/start/start.html')
 });
 
 app.get('/register', (req, res) => {
