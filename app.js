@@ -101,7 +101,9 @@ const PORT = process.env.PORT || 8080;
 
 
 //every url not specified before this - redirects to /index
-
+app.get('/*', (req, res) => {
+    return res.redirect('/start');
+});
 
 //Method - listens for requests on port (8080)
 server.listen(PORT, (error) => {
