@@ -15,12 +15,9 @@ const users = {}
 //assignes each user a socket
 io.on('connection', socket => {
 
-    //Emits welcome message
-    socket.broadcast.emit('message', 'Welcome to Chat-side');
-
-    //Listens for chatMessage
+    //Listens for chatMessage and broadcasts them
     socket.on('sendMessage', message => {
-        socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] });
+       socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] });
 
     });
 
@@ -51,7 +48,7 @@ const register = require('./routes/auth/register-auth');
 app.use(register);
 
 const login = require('./routes/auth/login-auth');
-app.use(login);
+app.use(login); 
 
 
 //built in middleware - server static files (HTML files)

@@ -25,6 +25,7 @@ const validateLogin = (data) => {
     const schema = joi.object({
         username: joi.string()
             .min(6)
+            .uppercase()
             .required(),
         password: joi.string()
             .min(8)
