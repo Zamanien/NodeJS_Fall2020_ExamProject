@@ -1,8 +1,11 @@
 h2{
     text-align: center;
+    margin: auto;
+    padding-top: 12%;
     padding-bottom: 30px;
-    padding-top: 20px;
+    
 }
+
 
 .center-blok {
     margin:auto;
@@ -18,3 +21,19 @@ h2{
 
 }
 
+#register-here{
+    margin-top: 1%;
+    text-align: center;
+}
+
+#globe{
+    margin-left: 0;
+    margin-top: -32%;
+    float: inline-start;
+    width: auto;
+    height: 735px;
+}
+
+#formLogin{
+    
+}

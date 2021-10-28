@@ -43,6 +43,6 @@ You will then be asked to live code!<br>
  
 
 #### Link to website: <br>
-- https://35.175.13.249:8080
-*Won't have a proper domain name
+- https://zamanien.com/
+
 

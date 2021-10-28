@@ -1,9 +1,10 @@
-#title{
-    padding-top: 40px;
+#chat_form{
     text-align: center;
+    margin-top: 1%;
+
 }
 
-#chatForm{
-    margin: auto;
+h2{
     text-align: center;
+    margin-top: 3%;
 }

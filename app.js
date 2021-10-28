@@ -1,9 +1,10 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const verify = require('./routes/auth/verify-JWT');
-require('dotenv').config();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+require('dotenv').config();
 
 //Chat implementation
 
@@ -15,15 +16,10 @@ const users = {}
 //assignes each user a socket
 io.on('connection', socket => {
 
-    //Emits welcome message
-    socket.broadcast.emit('message', 'Welcome to Chat-side');
-
-    //Listens for chatMessage
+    //Listens for chatMessage and broadcasts them
     socket.on('sendMessage', message => {
-        socket.broadcast.emit('chatMessage', {
-            message: message,
-            name: users[socket.id]
-        });
+       socket.broadcast.emit('chatMessage', { message: message, name: users[socket.id] });
+
     });
 
     //Displays username - gets id from built in socket method
@@ -48,20 +44,26 @@ app.use(express.json());
 //Allows the app to read incoming objects as Strings or Arrays
 app.use(express.urlencoded({ extended: true }));
 
+//Import Routes
 const register = require('./routes/auth/register-auth');
 app.use(register);
 
 const login = require('./routes/auth/login-auth');
-app.use(login);
+app.use(login); 
 
 
 //built in middleware - server static files (HTML files)
+<<<<<<< HEAD
 app.use(express.static(__dirname + '/public/'));
 
 
+=======
+//app.use(express.static(path.join(__dirname + 'public/')));
+app.use(express.static(__dirname + "/public"));
+>>>>>>> 23aaf8019c41e3025551c1ddb52d084c7a1725d0
 //index route
-app.get('/index', (req, res) => {
-    return res.sendFile(__dirname + '/index/index.html');
+app.get('/start', verify, (req, res) =>{
+    return res.sendFile(__dirname + '/public/start/start.html')
 });
 
 app.get('/register', (req, res) => {
@@ -73,7 +75,11 @@ app.get('/login', (req, res) => {
         
 });
 
-app.get('/user*', verify, (req, res) => {
+app.get('/', verify, (req, res) => {
+    return res.redirect('/login');
+});
+
+app.get('/user', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/user/user.html');
 });
 
@@ -81,16 +87,21 @@ app.get('/chat*', verify, (req, res) => {
     return res.sendFile(__dirname + '/public/chat/chat.html');
 });
 
-app.get('/covid', (req, res) => {
+app.get('/covid', verify,(req, res) => {
     return res.sendFile(__dirname + '/public/covidTracker/covid19.html');
 });
 
-//every url not specified before this - redirects to /index
-app.get('/*', (req, res) => {
-    return res.redirect('/index');
+app.get('/contact', verify,(req, res) => {
+    return res.sendFile(__dirname + '/public/contact/contact.html');
 });
 
 const PORT = process.env.PORT || 8080;
+
+
+//every url not specified before this - redirects to /index
+app.get('/*', (req, res) => {
+    return res.redirect('/start');
+});
 
 //Method - listens for requests on port (8080)
 server.listen(PORT, (error) => {
