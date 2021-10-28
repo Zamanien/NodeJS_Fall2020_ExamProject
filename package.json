@@ -4,8 +4,7 @@
   "description": "NodeJS Exam Project",
   "main": "app.js",
   "scripts": {
-    "start": "app.js",
-    "test": "j"
+    "start": "app.js"
   },
   "repository": {
     "type": "git",
