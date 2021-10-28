@@ -10,6 +10,7 @@ module.exports = function (req, res, next) {
     const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.user = verified;
     next();
+    //return (res.status(200).send('OK. Verified'));
   } catch (error) {
     return res.status(403).send('ACCESS DENIED - Invalid token')
   }

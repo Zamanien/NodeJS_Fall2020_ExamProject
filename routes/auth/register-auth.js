@@ -19,7 +19,7 @@ router.post('/register', rateLimiter, async (req, res) => {
         //Insert form data & encrypted password into Database table: users
         await pool.execute('INSERT INTO users SET username = ?, password = ?, email = ?', [req.body.username, hashedPassword, req.body.email]);
         //redirect to loginpage
-        return res.redirect('/login')
+        return res.redirect('/login');
     } catch (error) {
         res.status(501).send(error);
     }

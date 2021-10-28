@@ -11,6 +11,7 @@ const io = require('socket.io')(server);
 const users = {}
 
 
+
 //assignes each user a socket
 io.on('connection', socket => {
 
@@ -57,6 +58,7 @@ app.use(login);
 //built in middleware - server static files (HTML files)
 app.use(express.static(__dirname + '/public/'));
 
+
 //index route
 app.get('/index', (req, res) => {
     return res.sendFile(__dirname + '/index/index.html');
@@ -68,6 +70,7 @@ app.get('/register', (req, res) => {
 
 app.get('/login', (req, res) => {
     return res.sendFile(__dirname + '/public/login/login.html');
+        
 });
 
 app.get('/user*', verify, (req, res) => {
@@ -86,13 +89,6 @@ app.get('/covid', (req, res) => {
 app.get('/*', (req, res) => {
     return res.redirect('/index');
 });
-
-
-
-
-
-
-
 
 const PORT = process.env.PORT || 8080;
 
