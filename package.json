@@ -4,7 +4,8 @@
   "description": "NodeJS Exam Project",
   "main": "app.js",
   "scripts": {
-    "start": "app.js"
+    "start": "app.js",
+    "test": "j"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   },
   "homepage": "https://github.com/Zamanien/NodeJS_Fall2020_ExamProject#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

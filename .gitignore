@@ -109,5 +109,3 @@ dist
 #password file
 sql_database/access/
 
-#Package.json files
-package-lock.json

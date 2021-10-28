@@ -53,14 +53,9 @@ app.use(login);
 
 
 //built in middleware - server static files (HTML files)
-<<<<<<< HEAD
 app.use(express.static(__dirname + '/public/'));
 
 
-=======
-//app.use(express.static(path.join(__dirname + 'public/')));
-app.use(express.static(__dirname + "/public"));
->>>>>>> 23aaf8019c41e3025551c1ddb52d084c7a1725d0
 //index route
 app.get('/start', verify, (req, res) =>{
     return res.sendFile(__dirname + '/public/start/start.html')
