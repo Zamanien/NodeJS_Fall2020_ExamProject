@@ -1,22 +1,8 @@
 {
   "name": "nodejs_fall2020_examproject",
   "version": "1.0.0",
-  "description": "NodeJS Exam Project",
+  "description": "Exam Project for NodeJS Fall 2020.",
   "main": "app.js",
-  "scripts": {
-    "test": "jest --watchAll --verbose --detectOpenHandles",
-    "start": "app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Zamanien/NodeJS_Fall2020_ExamProject.git"
-  },
-  "author": "Tariq",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Zamanien/NodeJS_Fall2020_ExamProject/issues"
-  },
-  "homepage": "https://github.com/Zamanien/NodeJS_Fall2020_ExamProject#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
@@ -26,10 +12,24 @@
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
-    "socket.io": "^3.0.4", 
-    "jest":"27.3.1"
+    "socket.io": "^3.0.4"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zamanien/NodeJS_Fall2020_ExamProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zamanien/NodeJS_Fall2020_ExamProject/issues"
+  },
+  "homepage": "https://github.com/Zamanien/NodeJS_Fall2020_ExamProject#readme"
 }
+
+
